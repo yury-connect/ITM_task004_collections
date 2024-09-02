@@ -26,12 +26,26 @@ public class Solution {
     }
 
     public static int[] initializeArray() throws IOException {
-        // создай и заполни массив
-        return null;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        final int size = 20;
+
+        System.out.println("Создан массив из " + size + " элементов. Заполним его:");
+        int[] result = new int[size];
+        for (int i = 0; i < size; i++) {
+            System.out.printf("Введите элемент № '%d' из '%d'", i + 1, size);
+            result[i] = Integer.parseInt(reader.readLine());
+        }
+        return result;
     }
 
     public static int max(int[] array) {
-        // найди максимальное значение
-        return 0;
+        int max = array[0];
+        for (int item: array) {
+            if (item > max) {
+                max = item;
+            }
+        }
+        return max;
     }
 }
