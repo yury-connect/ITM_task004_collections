@@ -25,19 +25,19 @@ public class Solution {
 
         final int size = 10;
         System.out.printf("\nСоздан массив из '%d' элементов. \nЗаполним его элементы.\n", size);
-        String[] arr = new String[size];
+        String[] strings = new String[size];
         for(int i = 0; i < size ; i++) {
             System.out.printf("\nВведите элемент № '%d' из '%d' : ", i + 1, size);
-            arr[i] = reader.readLine();
+            strings[i] = reader.readLine();
         }
 
         System.out.println("Введены следующие значения:");
-        Arrays.stream(arr).forEach(i -> System.out.println(i));
+        Arrays.stream(strings).forEach(i -> System.out.println(i));
 
         System.out.println("Вывожу массив со всеми длинами элементы массива строк");
         final int[] lengths = new int[size];
         for (int i = 0; i < size; i++) {
-            lengths[i] = arr[i].length();
+            lengths[i] = strings[i].length();
             System.out.println(lengths[i]);
         }
     }
