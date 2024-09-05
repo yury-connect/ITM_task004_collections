@@ -44,7 +44,17 @@ public class Solution {
     }
 
     public static ArrayList<String> fix(ArrayList<String> strings) {
-        //напишите тут ваш код
-        return null;
+        for (int i = 0; i < strings.size(); i++) {
+            boolean isRemove = strings.get(i).contains("р"); // метим элемент на удаление
+            boolean isDouble = strings.get(i).contains("л"); // метим элемент на удваивание
+
+            if (isRemove && !isDouble) {
+                String s = strings.remove(i--);
+            } else if (!isRemove && isDouble) {
+                String item = strings.get(i);
+                strings.add(i++, item);
+            }
+        }
+        return strings;
     }
 }
