@@ -49,10 +49,9 @@ public class Solution {
             boolean isDouble = strings.get(i).contains("л"); // метим элемент на удваивание
 
             if (isRemove && !isDouble) {
-                String s = strings.remove(i--);
+                strings.remove(i--);
             } else if (!isRemove && isDouble) {
-                String item = strings.get(i);
-                strings.add(i++, item);
+                strings.add(i++, strings.get(i));
             }
         }
         return strings;
