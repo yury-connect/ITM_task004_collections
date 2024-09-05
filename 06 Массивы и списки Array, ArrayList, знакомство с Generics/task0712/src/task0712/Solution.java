@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 /* 
 Самые-самые
@@ -23,6 +24,37 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //напишите тут ваш код
+        List<String> strings = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        final int size = 10;
+
+        int lenMaxLength = 0;
+        int indexMaxLength = -1;
+
+        int lenMinLength = Integer.MAX_VALUE;
+        int indexMinLength = -1;
+
+        for (int i = 0; i < size; i++) {
+            System.out.printf("введите строку № %d из %d строк.", i + 1, size);
+            final String current = reader.readLine();
+            strings.add(current);
+
+            if (current.length() > lenMaxLength) {
+                lenMaxLength = current.length();
+                indexMaxLength = strings.indexOf(current);
+            }
+
+            if (current.length() < lenMinLength) {
+                lenMinLength = current.length();
+                indexMinLength = strings.indexOf(current);
+            }
+        }
+
+        if (indexMinLength < indexMaxLength) {
+            System.out.println(strings.get(indexMinLength));
+        } else {
+            System.out.println(strings.get(indexMaxLength));
+        }
     }
 }
