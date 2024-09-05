@@ -3,6 +3,8 @@ package task0711;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /* 
 1. Создай список строк.
@@ -19,6 +21,24 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        List<String> strings = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        final int size = 5;
+        int maxLength = 0;
+        for (int i = 0; i < size; i++) {
+            System.out.printf("введите строку № %d из %d строк.", i + 1, size);
+            String current = reader.readLine();
+            strings.add(0, current);
+        }
+
+        for (int i = 0; i < 13; i++) {
+            String current = strings.remove(strings.size() - 1);
+            strings.add(0, current);
+        }
+
+        for (String item: strings) {
+            System.out.println(item);
+        }
     }
 }
