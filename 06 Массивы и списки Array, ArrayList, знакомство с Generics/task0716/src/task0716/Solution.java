@@ -37,6 +37,7 @@ public class Solution {
         strings.add("лоза");
         strings.add("лира");
         strings = fix(strings);
+        System.out.println();
 
         for (String string : strings) {
             System.out.println(string);
@@ -45,13 +46,14 @@ public class Solution {
 
     public static ArrayList<String> fix(ArrayList<String> strings) {
         for (int i = 0; i < strings.size(); i++) {
-            boolean isRemove = strings.get(i).contains("р"); // метим элемент на удаление
-            boolean isDouble = strings.get(i).contains("л"); // метим элемент на удваивание
+            String current = strings.get(i);
+            boolean isRemove = current.contains("р"); // метим элемент на удаление
+            boolean isDouble = current.contains("л"); // метим элемент на удваивание
 
             if (isRemove && !isDouble) {
                 strings.remove(i--);
             } else if (!isRemove && isDouble) {
-                strings.add(i++, strings.get(i));
+                strings.add(i++, current);
             }
         }
         return strings;
