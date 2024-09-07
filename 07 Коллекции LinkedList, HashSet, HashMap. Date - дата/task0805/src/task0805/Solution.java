@@ -1,5 +1,6 @@
 package task0805;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +33,9 @@ public class Solution {
     }
 
     public static void printValues(Map<String, String> map) {
-        //напишите тут ваш код
+        Collection<String> values = map.values();
+        for (String val: values) {
+            System.out.println(val);
+        }
     }
 }
