@@ -1,6 +1,8 @@
 package task0815;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /* 
@@ -16,23 +18,50 @@ Requirements:
 4. Метод getCountTheSameFirstName() должен возвращать число людей у которых совпадает имя.
 5. Метод getCountTheSameLastName() должен возвращать число людей у которых совпадает фамилия.*/
 
+/*
+    Задача с тупым условием. Все ключи уникальные,
+    значит фамилии будут пере-затираться и всегда количество совпадающих фамилий будет = 1   !!!
+ */
 public class Solution {
     public static Map<String, String> createMap() {
-        //напишите тут ваш код
-
+        Map<String, String> people = new HashMap<>();   // <"Фамилия", "Имя">
+        people.put("Иванов", "Дмитрий");
+        people.put("Иванов", "Петр");
+        people.put("Иванов", "Иван");
+        people.put("Петров", "Михаил");
+        people.put("Петров", "Петр");
+        people.put("Петров", "Иван");
+        people.put("Федотов", "Дмитрий");
+        people.put("Федотов", "Тарас");
+        people.put("Федотов", "Иван");
+        people.put("Петросян", "Евгений");
+        return people;
     }
 
     public static int getCountTheSameFirstName(Map<String, String> map, String name) {
-        //напишите тут ваш код
-
+        List<String> list = map.values().stream().toList();
+        return counting(list, name);
     }
 
     public static int getCountTheSameLastName(Map<String, String> map, String lastName) {
-        //напишите тут ваш код
-
+        List<String> list = map.keySet().stream().toList();
+        return counting(list, lastName); // Метод всегда будет возвращать '1' т.к. ключи (т.е. фамилии) все уникальные!!!
     }
 
     public static void main(String[] args) {
+        Map<String, String> people = createMap();
+        people.entrySet().stream().forEach(entry -> System.out.printf("Фамилия: %-15s,\t Имя: %-15s\n", entry.getKey(), entry.getValue()));
+        System.out.println("FirstName 'Иван' повторяется: " + getCountTheSameFirstName(people, "Иван") + " раз.");
+        System.out.println("LastName 'Иванов' повторяется: " + getCountTheSameLastName(people, "Иванов") + " раз.");
+    }
 
+    private static int counting(List<String> stringList, String str) {
+        int count = 0;
+        for (String item: stringList) {
+            if (item.equals(str)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
