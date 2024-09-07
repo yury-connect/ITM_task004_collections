@@ -20,7 +20,27 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //напишите тут ваш код
+        final int size = 10;
+        ArrayList<String> words = new ArrayList<>(size);
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.printf("Необходимо ввести %d слов", size);
+        for (int i = 0; i < size; i++) {
+            System.out.printf("введите слово № %d из %d .", i, size - 1);
+            String current = reader.readLine();
+            words.add(current);
+        }
+
+        int previousLength = 0;
+        for (int i = 0; i < size; i++) {
+            if (words.get(i).length() < previousLength) {
+                System.out.println(i);
+                break;
+            } else {
+                previousLength = words.get(i).length();
+            }
+        }
     }
 }
 
