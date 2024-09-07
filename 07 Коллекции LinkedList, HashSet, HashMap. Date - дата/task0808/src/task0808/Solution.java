@@ -18,6 +18,8 @@ Requirements:
 7. Метод remove10000(List list) должен удалять 10 тысяч элементов из списка.*/
 
 public class Solution {
+    final static int COUNT = 10_000;
+
     public static void main(String[] args) {
         // ArrayList
         ArrayList arrayList = new ArrayList();
@@ -35,22 +37,26 @@ public class Solution {
     }
 
     public static void insert10000(List list) {
-        //напишите тут ваш код
-
+        for (int i = 0; i < COUNT; i++) {
+            list.add(i);
+        }
     }
 
     public static void get10000(List list) {
-        //напишите тут ваш код
-
+        for (int i = 0; i < COUNT; i++) {
+            list.get(i);
+        }
     }
 
     public static void set10000(List list) {
-        //напишите тут ваш код
-
+        for (int i = 0; i < COUNT; i++) {
+            list.set(i, COUNT - i);
+        }
     }
 
     public static void remove10000(List list) {
-        //напишите тут ваш код
-
+        for (int i = 0; i < COUNT; i++) {
+            list.remove(COUNT - 1 - i);
+        }
     }
 }
