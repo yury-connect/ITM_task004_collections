@@ -31,7 +31,8 @@ public class Solution {
         map.put("Hugs", 111111111111L);
         map.put("Comp", (double) 123);
 
-        //напишите тут ваш код
-
+        for (Map.Entry<String, Object> entry: map.entrySet()) {
+            System.out.println("key:'" + entry.getKey() + "'\t\tvalue:'" + entry.getValue() + "'");
+        }
     }
 }
