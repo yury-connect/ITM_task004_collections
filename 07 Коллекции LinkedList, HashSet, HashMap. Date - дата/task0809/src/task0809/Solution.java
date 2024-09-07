@@ -24,12 +24,12 @@ public class Solution {
     }
 
     public static long getInsertTimeInMs(List list) {
-        // напишите тут ваш код
+        long start = System.currentTimeMillis();
 
         insert10000(list);
 
-        // напишите тут ваш код
-
+        long duration = System.currentTimeMillis() - start;
+        return duration;
     }
 
     public static void insert10000(List list) {
