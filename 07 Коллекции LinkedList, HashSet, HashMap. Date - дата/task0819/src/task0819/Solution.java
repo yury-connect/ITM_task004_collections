@@ -24,20 +24,40 @@ Requirements:
 public class Solution {
     public static void main(String[] args) {
         Set<Cat> cats = createCats();
+        System.out.println(" Исходный набор объектов:");
+        printCats(cats);
 
-        //напишите тут ваш код. step 3 - пункт 3
+        Cat catFoRemove = (Cat) cats.toArray()[1];
+        cats.remove(catFoRemove);
 
+        System.out.println("\n Набор объектов после удаления '" + catFoRemove + "':");
         printCats(cats);
     }
 
     public static Set<Cat> createCats() {
-        //напишите тут ваш код. step 2 - пункт 2
-        return null;
+        Set<Cat> catSet = new HashSet<>();
+        catSet.add(new Cat("Мурзик"));
+        catSet.add(new Cat("Тузик"));
+        catSet.add(new Cat("Рыжик"));
+        return catSet;
     }
 
     public static void printCats(Set<Cat> cats) {
-        // step 4 - пункт 4
+        for (Cat cat: cats) {
+            System.out.println(cat);
+        }
     }
 
-    // step 1 - пункт 1
+    public static class Cat {
+        String name;
+
+        public Cat(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return "Кот по имени '" + name + '\'';
+        }
+    }
 }
