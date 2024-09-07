@@ -29,37 +29,75 @@ public class Solution {
         Set<Dog> dogs = createDogs();
 
         Set<Object> pets = join(cats, dogs);
+        System.out.println("\nВыводим исходное множество:");
         printPets(pets);
 
         removeCats(pets, cats);
+        System.out.println("\nВыводим полученное множество:");
         printPets(pets);
     }
 
     public static Set<Cat> createCats() {
         Set<Cat> result = new HashSet<Cat>();
-
-        //напишите тут ваш код
-
+        result.add(new Cat());
+        result.add(new Cat());
+        result.add(new Cat());
         return result;
     }
 
     public static Set<Dog> createDogs() {
-        //напишите тут ваш код
-        return null;
+        Set<Dog> result = new HashSet<Dog>();
+        result.add(new Dog());
+        result.add(new Dog());
+        result.add(new Dog());
+        result.add(new Dog());
+        return result;
     }
 
     public static Set<Object> join(Set<Cat> cats, Set<Dog> dogs) {
-        //напишите тут ваш код
-        return null;
+        Set<Object> pets = new HashSet<>();
+        pets.addAll(cats);
+        pets.addAll(dogs);
+        return pets;
     }
 
     public static void removeCats(Set<Object> pets, Set<Cat> cats) {
-        //напишите тут ваш код
+        pets.removeAll(cats);
     }
 
     public static void printPets(Set<Object> pets) {
-        //напишите тут ваш код
+        for (Object pet: pets) {
+            System.out.println(pet);
+        }
     }
 
-    //напишите тут ваш код
+
+
+    public static class Cat {
+        private static int count;
+        private int sequenceNumber;
+
+        public Cat() {
+            this.sequenceNumber = ++count;
+        }
+
+        @Override
+        public String toString() {
+            return "Cat № " + sequenceNumber;
+        }
+    }
+
+    public static class Dog {
+        private static int count;
+        private int sequenceNumber;
+
+        public Dog() {
+            this.sequenceNumber = ++count;
+        }
+
+        @Override
+        public String toString() {
+            return "Dog № " + sequenceNumber;
+        }
+    }
 }
