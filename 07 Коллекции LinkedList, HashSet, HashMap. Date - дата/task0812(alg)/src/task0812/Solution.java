@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /* 
 Cамая длинная последовательность
@@ -27,7 +29,29 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //напишите тут ваш код
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        final int size = 10;
+        List<Integer> integerList = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            Integer current = Integer.parseInt(reader.readLine());
+            integerList.add(current);
+        }
 
+//        integerList.add(1); integerList.add(0); integerList.add(3); integerList.add(0); integerList.add(3); integerList.add(3); integerList.add(1); integerList.add(1); integerList.add(1); integerList.add(9);   // Для тестирования, результат будет 3
+
+
+        Integer previous = integerList.get(0);
+        int maxLength = 1;
+        int countCurrent = 0;
+        for (Integer item: integerList) {
+            if (item.equals(previous)) {
+                countCurrent++;
+            } else {
+                countCurrent = 1;
+            }
+            maxLength = Math.max(maxLength, countCurrent);
+            previous = item;
+        }
+        System.out.println(maxLength);
     }
 }
