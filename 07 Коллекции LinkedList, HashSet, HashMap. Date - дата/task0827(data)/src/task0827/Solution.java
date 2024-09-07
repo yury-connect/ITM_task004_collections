@@ -25,6 +25,17 @@ public class Solution {
     }
 
     public static boolean isDateOdd(String date) {
-        return true;
+        Date dateNeed = new Date(date);
+        Date startOfYear = new Date(dateNeed.getYear(), 0, 1);
+
+        // Вычисляем количество миллисекунд между нужной датой и 1 января рассматриваемого года
+        long millisecondsSinceStartOfYear = dateNeed.getTime() - startOfYear.getTime();
+
+        // Переводим миллисекунды в дни
+        long daysSinceStartOfYear = millisecondsSinceStartOfYear / (1000 * 60 * 60 * 24);
+
+        System.out.println("Количество дней, прошедшее с начала года: " + daysSinceStartOfYear);
+
+        return daysSinceStartOfYear % 2 != 0;   // 'true' - если не четное, 'false' - если чет.
     }
 }
