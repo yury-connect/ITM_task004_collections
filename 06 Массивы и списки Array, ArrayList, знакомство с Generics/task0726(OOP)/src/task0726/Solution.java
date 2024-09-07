@@ -64,7 +64,7 @@ public class Solution {
 
         @Override
         public String toString() {
-            return "Cat's name: " + name + ", age: " + age + ", weight: " + weight + ", tail: " + tailLength;
+            return "Cat's name: " + name + ", age: " + age + ", weight: " + weight + ", tail: " + tailLength + ".";
         }
     }
 }
