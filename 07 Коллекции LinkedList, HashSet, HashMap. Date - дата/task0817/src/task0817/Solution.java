@@ -16,10 +16,14 @@ Requirements:
 4. Метод removeTheFirstNameDuplicates() должен удалять из словаря всех людей, имеющие одинаковые имена.
 5. Метод removeTheFirstNameDuplicates() должен вызывать метод removeItemFromMapByValue().*/
 
+/*
+    Не понятно условие задания. В поставленном варианте - оно некорректное!
+ */
 public class Solution {
     public static Map<String, String> createMap() {
         //напишите тут ваш код
 
+        return null;
     }
 
     public static void removeTheFirstNameDuplicates(Map<String, String> map) {
