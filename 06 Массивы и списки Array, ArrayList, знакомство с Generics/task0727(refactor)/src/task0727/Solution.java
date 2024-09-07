@@ -7,7 +7,8 @@ import java.util.ArrayList;
 
 /* 
 Меняем функциональность
-Задача: Программа вводит строки, пока пользователь не введёт пустую строку (нажав enter). Потом она конвертирует строки в верхний регистр (Мама превращается в МАМА) и выводит их на экран.
+Задача: Программа вводит строки, пока пользователь не введёт пустую строку (нажав enter).
+Потом она конвертирует строки в верхний регистр (Мама превращается в МАМА) и выводит их на экран.
 
 Новая задача: Программа вводит строки, пока пользователь не введёт пустую строку (нажав enter).
 Потом программа строит новый список. Если в строке чётное число букв, строка удваивается, если нечётное - утраивается.
@@ -45,7 +46,15 @@ public class Solution {
         ArrayList<String> resultStrings = new ArrayList<String>();
         for (int i = 0; i < strings.size(); i++) {
             String string = strings.get(i);
-            resultStrings.add(string.toUpperCase());
+            StringBuilder builder = new StringBuilder(string);
+            builder.append(" ");
+            builder.append(string);
+            if (string.length() %2 != 0) {
+                builder.append(" ");
+                builder.append(string);
+            }
+            strings.set(i, string);
+            resultStrings.add(String.valueOf(builder));
         }
 
         for (int i = 0; i < resultStrings.size(); i++) {
