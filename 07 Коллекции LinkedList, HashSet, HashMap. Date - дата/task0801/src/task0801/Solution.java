@@ -30,7 +30,28 @@ Requirements:
 
 public class Solution {
     public static void main(String[] args) {
-        //напишите тут ваш код
+        Set<String> stringSet = new HashSet<>();
+        stringSet.add("арбуз");
+        stringSet.add("банан");
+        stringSet.add("вишня");
+        stringSet.add("груша");
+        stringSet.add("дыня");
+        stringSet.add("ежевика");
+        stringSet.add("женьшень");
+        stringSet.add("земляника");
+        stringSet.add("ирис");
+        stringSet.add("картофель");
 
+        stringSet.stream().forEach(System.out::println);
+
+//        System.out.println("\n\n\nПорядок вывода изменился, потому что вы используете HashSet. \n" +
+//                "Коллекция HashSet в Java не гарантирует порядок хранения элементов. \n" +
+//                "Она реализована на основе хеш-таблиц, и элементы внутри этого множества \n" +
+//                "распределяются в зависимости от их хэш-кодов.\n" +
+//                "\n" +
+//                "Когда вы добавляете элементы в HashSet, их расположение внутри структуры данных \n" +
+//                "зависит от хэш-кодов, которые вы видите при вызове s.hashCode(). \n" +
+//                "Порядок элементов при итерации по множеству может быть различным при каждом запуске программы, \n" +
+//                "так как он зависит от внутреннего состояния хеш-таблицы.");
     }
 }
