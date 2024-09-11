@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /* 
 Перепись населения
@@ -39,12 +40,12 @@ public class Solution {
     }
 
     public static int getCountTheSameFirstName(Map<String, String> map, String name) {
-        List<String> list = map.values().stream().toList();
+        List<String> list = map.values().stream().collect(Collectors.toList());
         return counting(list, name);
     }
 
     public static int getCountTheSameLastName(Map<String, String> map, String lastName) {
-        List<String> list = map.keySet().stream().toList();
+        List<String> list = map.keySet().stream().collect(Collectors.toList());
         return counting(list, lastName); // Метод всегда будет возвращать '1' т.к. ключи (т.е. фамилии) все уникальные!!!
     }
 
